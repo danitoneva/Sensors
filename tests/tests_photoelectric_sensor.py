@@ -26,11 +26,11 @@ class TestPhotoelectricSensor():
 
     def test_photoelectric_sensor_less(self):
         PhotoelectricSensor("S5", 0.1, 30, 0, True)
-        raise ValueError("Тhe value is below the limit.")
+        raise ValueError("The value is below the limit.")
 
     def test_photoelectric_sensor_more(self):
         PhotoelectricSensor("S6", 0.1, 30, 31, True)
-        raise ValueError("Тhe value is over the limit.")
+        raise ValueError("The value is over the limit.")
 
 if __name__ == '__main__':
     pytest.main()

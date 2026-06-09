@@ -26,11 +26,11 @@ class TestPressureSensor():
 
     def test_pressure_sensor_less(self):
         PressureSensor("S5", 0.1, 1.0, 0, "bar")
-        raise ValueError("Тhe value is below the limit.")
+        raise ValueError("The value is below the limit.")
 
     def test_pressure_sensor_more(self):
         PressureSensor("S6", 0.1, 1.0, 1.1, "bar")
-        raise ValueError("Тhe value is over the limit.")
+        raise ValueError("The value is over the limit.")
 
 if __name__ == '__main__':
     pytest.main()

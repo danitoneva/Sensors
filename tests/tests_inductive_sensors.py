@@ -27,11 +27,11 @@ class TestInductiveSensor():
 
     def test_inductive_sensor_less(self):
         InductiveSensor("S5", 5.0, 7.0, 4.0, "aluminium")
-        raise ValueError("Тhe value is below the limit.")
+        raise ValueError("The value is below the limit.")
 
     def test_inductive_sensor_more(self):
         InductiveSensor("S6", 5.0, 7.0, 8.0, "aluminium")
-        raise ValueError("Тhe value is over the limit.")
+        raise ValueError("The value is over the limit.")
 
 if __name__ == '__main__':
     pytest.main()
