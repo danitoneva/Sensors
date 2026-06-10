@@ -69,11 +69,11 @@ class TestPhotoelectricSensorS1():
         raise ValueError("The value is below the limit.")
 
     def test_photoelectric_sensor_more(self):
-        unvalid_over_min_distance = 31
+        unvalid_over_max_distance = 31
         PhotoelectricSensor(PhotoelectricSensorNames.SENSOR_S2,
                             PhotoelectricSensorRange.MIN_DISTANCE_NM,
                             PhotoelectricSensorRange.MAX_DISTANCE_NM, 
-                            unvalid_over_min_distance, 
+                            unvalid_over_max_distance, 
                             PhotoelectricSensorMode.MODE_TRUE)
         raise ValueError("The value is over the limit.")
 
