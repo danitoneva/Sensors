@@ -4,32 +4,77 @@ Tests for photoelectric sensor.
 import pytest
 from sensors.photoelectric_sensor import PhotoelectricSensor
 
-class TestPhotoelectricSensor():
+
+class PhotoelectricSensorRange:
+    MIN_DISTANCE_NM = 0.1
+    MAX_DISTANCE_NM = 30
+
+
+class PhotoelectricSensorMode:
+    MODE_TRUE = True
+    MODE_FALSE = False
+
+
+class PhotoelectricSensorNames:
+    SENSOR_S1 = "S1"
+    SENSOR_S2 = "S2"
+
+class TestPhotoelectricSensorS1():
     """
     Class for testing photoelectric sensors.
     """
     def test_photoelectric_sensor_in_range(self):
-        sensor = PhotoelectricSensor("S1", 0.1, 30, 15, True)
+        valid_midle_range_distance = 15
+        sensor = PhotoelectricSensor(PhotoelectricSensorNames.SENSOR_S1,
+                                    PhotoelectricSensorRange.MIN_DISTANCE_NM,
+                                    PhotoelectricSensorRange.MAX_DISTANCE_NM, 
+                                    valid_midle_range_distance, 
+                                    PhotoelectricSensorMode.MODE_TRUE)
         assert sensor.validate()
 
     def test_photoelectric_sensor_min(self):
-        sensor = PhotoelectricSensor("S2", 0.1, 30, 0.1, True)
+        valid_min_range_distance = 0.1
+        sensor = PhotoelectricSensor(PhotoelectricSensorNames.SENSOR_S2,
+                                    PhotoelectricSensorRange.MIN_DISTANCE_NM,
+                                    PhotoelectricSensorRange.MAX_DISTANCE_NM, 
+                                    valid_min_range_distance, 
+                                    PhotoelectricSensorMode.MODE_TRUE)
         assert sensor.validate()
 
     def test_photoelectric_sensor_max(self):
-        sensor = PhotoelectricSensor("S3", 0.1, 30, 30, True)
+        valid_max_range_distance = 30
+        sensor = PhotoelectricSensor(PhotoelectricSensorNames.SENSOR_S1,
+                                    PhotoelectricSensorRange.MIN_DISTANCE_NM,
+                                    PhotoelectricSensorRange.MAX_DISTANCE_NM, 
+                                    valid_max_range_distance, 
+                                    PhotoelectricSensorMode.MODE_TRUE)
         assert sensor.validate()
 
     def test_photoelectric_sensor_mode(self):
-        PhotoelectricSensor("S4", 0.1, 30, 15, False)
+        valid_midle_range_distance = 15
+        PhotoelectricSensor(PhotoelectricSensorNames.SENSOR_S2,
+                            PhotoelectricSensorRange.MIN_DISTANCE_NM,
+                            PhotoelectricSensorRange.MAX_DISTANCE_NM, 
+                            valid_midle_range_distance, 
+                            PhotoelectricSensorMode.MODE_FALSE)
         raise ValueError("The sensor must be in the on state.")
 
     def test_photoelectric_sensor_less(self):
-        PhotoelectricSensor("S5", 0.1, 30, 0, True)
+        unvalid_under_min_distance = 0
+        PhotoelectricSensor(PhotoelectricSensorNames.SENSOR_S1,
+                            PhotoelectricSensorRange.MIN_DISTANCE_NM,
+                            PhotoelectricSensorRange.MAX_DISTANCE_NM, 
+                            unvalid_under_min_distance, 
+                            PhotoelectricSensorMode.MODE_TRUE)
         raise ValueError("The value is below the limit.")
 
     def test_photoelectric_sensor_more(self):
-        PhotoelectricSensor("S6", 0.1, 30, 31, True)
+        unvalid_over_min_distance = 31
+        PhotoelectricSensor(PhotoelectricSensorNames.SENSOR_S2,
+                            PhotoelectricSensorRange.MIN_DISTANCE_NM,
+                            PhotoelectricSensorRange.MAX_DISTANCE_NM, 
+                            unvalid_over_min_distance, 
+                            PhotoelectricSensorMode.MODE_TRUE)
         raise ValueError("The value is over the limit.")
 
 if __name__ == '__main__':
