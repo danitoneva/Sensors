@@ -6,16 +6,19 @@ from sensors.pressure_sensor import PressureSensor
 
 
 class PressureSensorRange:
+    """This class is for range variables."""
     MIN_PRESSURE = 0.1
     MAX_PRESSURE = 1.0
 
 
 class PressureSensorUnit:
+    """This class is for the unit."""
     UNIT_BAR = "bar"
     UNIT_NOT_BAR = "mm"
 
 
 class PressureSensorNames:
+    """This class is for the name of the sensors."""
     SENSOR_S1 = "S1"
     SENSOR_S2 = "S2"
 

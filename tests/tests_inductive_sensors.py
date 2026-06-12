@@ -6,11 +6,13 @@ from sensors.inductive_sensor import InductiveSensor
 
 
 class InductiveSensorRange:
+    """This class is for range variables."""
     MIN_DISTANCE_NM = 5.0
     MAX_DISTANCE_NM = 7.0
 
 
 class InductiveSensorMaterial:
+    """This class is for material."""
     METAL_ALUMINIUM = "aluminium"
     METAL_COPPER = "copper"
     METAL_IRON = "iron"
@@ -18,6 +20,7 @@ class InductiveSensorMaterial:
 
 
 class InductiveSensorNames:
+    """This class is for the name of the sensors."""
     SENSOR_S1 = "S1"
     SENSOR_S2 = "S2"
 

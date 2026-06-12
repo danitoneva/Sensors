@@ -6,16 +6,19 @@ from sensors.photoelectric_sensor import PhotoelectricSensor
 
 
 class PhotoelectricSensorRange:
+    """This class is for range variables."""
     MIN_DISTANCE_NM = 0.1
     MAX_DISTANCE_NM = 30
 
 
 class PhotoelectricSensorMode:
+    """This class is for the mode."""
     MODE_TRUE = True
     MODE_FALSE = False
 
 
 class PhotoelectricSensorNames:
+    """This class is for the name of the sensors."""
     SENSOR_S1 = "S1"
     SENSOR_S2 = "S2"
 
